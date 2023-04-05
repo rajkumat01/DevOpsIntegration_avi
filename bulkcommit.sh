@@ -1,4 +1,4 @@
-##This Shell Script is for creating bulk commits on the fly. ##
+i##This Shell Script is for creating bulk commits on the fly. ##
 ## Current Working Directory ##
 echo "Present Working Directory is >> "$PWD
 
@@ -22,7 +22,7 @@ createNewCommits() {
         echo "-------  Creating File -------> $x"
         current_time=$(date "+%Y_%m_%d_%H_%M_%s")
         echo "Current Time : $current_time"
-        command="echo 'randfile_$x_$current_time' >> BulkCommitDir/randfile_'$x'_$current_time.txt && git add . && git commit -m '$x:randfile_$current_time.txt'"
+        command="echo 'randfile_$x_$current_time' >> BulkCommitDir/randfile_'$x'_$current_time.txt && git add . && git commit -m '$x:randfile_$current_time.txt' && git push"
         echo $command
         eval "$command"
 
