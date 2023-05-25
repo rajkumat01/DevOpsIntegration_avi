@@ -3,7 +3,7 @@ name: ChangeTask
 on: workflow_dispatch
 
 jobs:
-deploy:
+	deploy:
 		name: Deploy
 		runs-on: ubuntu-latest
 		steps:     
