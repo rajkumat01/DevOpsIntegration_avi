@@ -29,6 +29,6 @@ jobs:
                   # The time in seconds to wait between trying the API.
                   interval: 100 # optional, default is 100
                   # The customized inputs to create change with the requested details.
-                  change-request: '{ "chg_model": "007c4001c343101035ae3f52c1d3aeb2", "type": "normal"}'
+                  change-request: '{"setCloseCode":"true","attributes":{"short_description":"FIRST CR","description":"Automated Software Deployment."}}'
             - name: Run deployment scripts
               run: echo Completed Deployment   
