@@ -1,4 +1,4 @@
-i##This Shell Script is for creating bulk commits on the fly. ##
+##This Shell Script is for creating bulk commits on the fly. ##
 ## Current Working Directory ##
 echo "Present Working Directory is >> "$PWD
 
@@ -31,7 +31,7 @@ createNewCommits() {
         eval "$latestCommitSHAValueCommand"
 
         x=$(($x + 1))
-        sleep .001
+        # sleep .001
         # echo "\tWaiting for 1 sec."
     done
 }
