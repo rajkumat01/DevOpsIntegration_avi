@@ -14,7 +14,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: deploymentgate
+    environment: dev
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
