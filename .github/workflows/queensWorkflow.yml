@@ -14,7 +14,6 @@ permissions:
 jobs:
     snchange:
       name: Deploy
-      needs: build
       runs-on: ubuntu-latest
       steps:     
         - name: ServiceNow Change
@@ -34,6 +33,7 @@ jobs:
             deployment-gate: '{"environment":"deploymentgate","jobName":"Deploy"}'
     build:
       runs-on: ubuntu-latest
+      needs: snchange
       environment:
         name: deploymentgate
       steps:
