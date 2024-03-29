@@ -28,7 +28,7 @@ jobs:
   # Upload the JFrog Artifact, in the below we are upload README.md artifact.
    - name: Run JFrog CLI Ping
      run: |
-          export JFROG_CLI_HOME="/home/runner/work/jenkins-test/jenkins-test"
+          export JFROG_CLI_HOME="/home/runner/"
           jf rt u "file1.txt" "tf-trial/workspaces/jfrog-ws1/"
           # Collect environment variables for the build
           jf rt bce
