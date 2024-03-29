@@ -1,5 +1,6 @@
 name: Push Build to Artifactory
 
+
 on: workflow_dispatch 
 
 
@@ -9,8 +10,8 @@ jobs:
   
    steps:
    # This action checks out the code from the repository
-   # - name: Checkout Code
-   #   uses: actions/checkout@v2
+   - name: Checkout Code
+     uses: actions/checkout@v2
 
 
    # This action sets up the JFrog CLI with the Artifactory URL and access token     
@@ -23,43 +24,25 @@ jobs:
    # This command adds a new server configuration to the JFrog CLI   
    - run: |
        export SERVER_ID="venkata7"
-       jf c add $SERVER_ID --url="https://venkata7.jfrog.io" --access-token="eyJ2ZXIiOiIyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYiLCJraWQiOiJmUHhRTTk0ZGQ1eW1rellOcV95R3d5ak82T2RvZFhzTDF5YWJDVm5GdWtrIn0.eyJzdWIiOiJqZmFjQDAxaHN4MTJ3Z2ZtMTVjMDRuYXpqNGcwMnJtL3VzZXJzL2FkbWluIiwic2NwIjoiYXBwbGllZC1wZXJtaXNzaW9ucy9hZG1pbiIsImF1ZCI6IipAKiIsImlzcyI6ImpmZmVAMDFoc3gxMndnZm0xNWMwNG5hemo0ZzAycm0iLCJpYXQiOjE3MTE2OTQ4MDIsImp0aSI6IjBjNmFjZmNjLWFjMzItNDY0OS04NmJiLWIzMWZkYjQxNjk3ZCJ9.GCn1a1rw8W_mZPyv_B18KFByVAoqJ8jUMMBC-vsrn-31GOOjLeWKSSWherKHfHCgihi2EvVQ-mDe41KBlVcE7C0S_PDRl4oIGp9eT1qnjwbkkEy1xJ1ijnGZ9iSItQ7rBwGySa1HyT-3JnbXwWQ4K4qsnUDFsS7NYFnyOjv15skr2tV558FCGPxS_223z_CMj7Qz7OxgnqezobZmFv6VNK3e8u9CCKCR5M9KSdfpAXTBjZCkzhC8xkLurkgZwl-y_Xo3yzxdWit6LyVh5bBc1c-kWsClEoFzB3-tGPJjgl8LFspwtq7aNJeDDFbhvFY8WXtaZAM40tnG6R-F_iXbJw" --interactive=false
+       jf c add $SERVER_ID --url="https://venkata14.jfrog.io" --access-token="eyJ2ZXIiOiIyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYiLCJraWQiOiJmUHhRTTk0ZGQ1eW1rellOcV95R3d5ak82T2RvZFhzTDF5YWJDVm5GdWtrIn0.eyJzdWIiOiJqZmFjQDAxaHN4MTJ3Z2ZtMTVjMDRuYXpqNGcwMnJtL3VzZXJzL2FkbWluIiwic2NwIjoiYXBwbGllZC1wZXJtaXNzaW9ucy9hZG1pbiIsImF1ZCI6IipAKiIsImlzcyI6ImpmZmVAMDFoc3gxMndnZm0xNWMwNG5hemo0ZzAycm0iLCJpYXQiOjE3MTE2OTQ4MDIsImp0aSI6IjBjNmFjZmNjLWFjMzItNDY0OS04NmJiLWIzMWZkYjQxNjk3ZCJ9.GCn1a1rw8W_mZPyv_B18KFByVAoqJ8jUMMBC-vsrn-31GOOjLeWKSSWherKHfHCgihi2EvVQ-mDe41KBlVcE7C0S_PDRl4oIGp9eT1qnjwbkkEy1xJ1ijnGZ9iSItQ7rBwGySa1HyT-3JnbXwWQ4K4qsnUDFsS7NYFnyOjv15skr2tV558FCGPxS_223z_CMj7Qz7OxgnqezobZmFv6VNK3e8u9CCKCR5M9KSdfpAXTBjZCkzhC8xkLurkgZwl-y_Xo3yzxdWit6LyVh5bBc1c-kWsClEoFzB3-tGPJjgl8LFspwtq7aNJeDDFbhvFY8WXtaZAM40tnG6R-F_iXbJw" --interactive=false
 
   # Upload the JFrog Artifact, in the below we are upload README.md artifact.
    - name: Run JFrog CLI Ping
      run: |
-          export JFROG_CLI_HOME="/home/runner/"
-          jf rt u "~/file1.txt" "tf-trial/workspaces/jfrog-ws1/"
+          export JFROG_CLI_HOME="/home/runner/work/jenkins-test/jenkins-test"
+          jf rt u "README.md" "tf-trial/workspaces/jfrog-ws1/"
           # Collect environment variables for the build
           jf rt bce
           # Publish build info
           jf rt bp
           
    # Download the JFrog Artifact, in the below we are Downloading README.md artifact.
-   # - name: Download Artifact
-   #   run: |
-   #        jf rt dl tf-trial/workspaces/jfrog-ws1/README.md ./ 
-   #        jf rt bp
+   - name: Download Artifact
+     run: |
+          jf rt dl tf-trial/workspaces/jfrog-ws1/README.md ./ 
+          jf rt bp
 
 
-   # - name: Display structure of downloaded files of Artifact 
-   #   run: ls -R
-   #   working-directory: ${{ github.workspace }}
-
-       
-   - name: ServiceNow Change
-     uses: ServiceNow/servicenow-devops-change@v3.0.0
-     with:
-       devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
-       instance-url: ${{ secrets.SN_INSTANCE_URL }}
-       tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-       context-github: ${{ toJSON(github) }}
-       job-name: 'Change Request Attributes'
-       change-request: '{"setCloseCode":"true","autoCloseChange":true,"attributes":{"short_description":"Automated Software Deployment","description":"Automated Software Deployment.","assignment_group":"a715cd759f2002002920bde8132e7018","implementation_plan":"Software update is tested and results can be found in Test Summaries Tab; When the change is approved the implementation happens automated by the CICD pipeline within the change planned start and end time window.","backout_plan":"When software fails in production, the previous software release will be re-deployed.","test_plan":"Testing if the software was successfully deployed"}}'
-       interval: '100'
-       timeout: '3600'
-       changeCreationTimeOut: '3600'
-       abortOnChangeCreationFailure: true
-       abortOnChangeStepTimeout: true
-
-  
+   - name: Display structure of downloaded files of Artifact 
+     run: ls -R
+     working-directory: ${{ github.workspace }}
