@@ -37,15 +37,16 @@ jobs:
           jf rt bp
           
    # Download the JFrog Artifact, in the below we are Downloading README.md artifact.
-   # - name: Download Artifact
-   #   run: |
-   #        jf rt dl tf-trial/workspaces/jfrog-ws1/README.md ./ 
-   #        jf rt bp
+   - name: Download Artifact
+     run: |
+          jf rt dl tf-trial/workspaces/jfrog-ws1/README.md ./ 
+          jf rt bp
 
 
-   # - name: Display structure of downloaded files of Artifact 
-   #   run: ls -R
-   #   working-directory: ${{ github.workspace }}
+   - name: Display structure of downloaded files of Artifact 
+     run: ls -R
+     working-directory: ${{ github.workspace }}
+     
  snchange:
    name: Change Request Attributes
    needs: build
