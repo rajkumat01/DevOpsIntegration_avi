@@ -30,7 +30,7 @@ jobs:
    - name: Run JFrog CLI Ping
      run: |
           export JFROG_CLI_HOME="/home/runner/work/jenkins-test/jenkins-test"
-          jf rt u "file1.txt" "tf-trial/workspaces/jfrog-ws1/dir"
+          jf rt u "file1.txt" "tf-trial/workspaces/jfrog-ws1"
           # Collect environment variables for the build
           jf rt bce
           # Publish build info
@@ -39,7 +39,7 @@ jobs:
    # Download the JFrog Artifact, in the below we are Downloading README.md artifact.
    - name: Download Artifact
      run: |
-          jf rt dl tf-trial/workspaces/jfrog-ws1/dir/file1.txt ./ 
+          jf rt dl tf-trial/workspaces/jfrog-ws1/file1.txt ./ 
           jf rt bp
 
 
