@@ -30,7 +30,7 @@ jobs:
    - name: Run JFrog CLI Ping
      run: |
           export JFROG_CLI_HOME="/home/runner/work/jenkins-test/jenkins-test"
-          jf rt u "dir/file1.txt" "tf-trial/workspaces/jfrog-ws1/"
+          jf rt u "file1.txt" "tf-trial/workspaces/jfrog-ws1/dir"
           # Collect environment variables for the build
           jf rt bce
           # Publish build info
