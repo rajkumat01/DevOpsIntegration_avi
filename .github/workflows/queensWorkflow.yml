@@ -55,7 +55,7 @@ jobs:
           changeCreationTimeOut: '3600'
           abortOnChangeCreationFailure: true
           abortOnChangeStepTimeout: true
-          deployment-gate: '{"environment":"deploymentgate","jobName":"Deploy"}'
+          # deployment-gate: '{"environment":"deploymentgate","jobName":"Deploy"}'
   deploy:
     name: Deploy
     needs: snchange
