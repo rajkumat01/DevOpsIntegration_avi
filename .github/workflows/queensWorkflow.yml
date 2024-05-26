@@ -56,13 +56,13 @@ jobs:
           abortOnChangeCreationFailure: true
           abortOnChangeStepTimeout: true
           # deployment-gate: '{"environment":"deploymentgate","jobName":"Deploy"}'
-  deploy:
-    name: Deploy
-    needs: snchange
-    runs-on: ubuntu-latest
-    environment: deploymentgate
-    steps:
-      - run: echo Run deployment
+  # deploy:
+  #   name: Deploy
+  #   needs: snchange
+  #   runs-on: ubuntu-latest
+  #   environment: deploymentgate
+  #   steps:
+  #     - run: echo Run deployment
       # - name: Azure login
       #   uses: azure/login@v1
       #   with:
