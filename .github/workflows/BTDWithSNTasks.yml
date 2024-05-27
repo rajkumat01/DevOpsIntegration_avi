@@ -95,6 +95,8 @@ jobs:
           
       - name: Run deployment scripts
         run: echo Completed Deployment.
+      - name: Sleep
+        run: sleep 15
 
   postDeploy:
     needs: deploy
