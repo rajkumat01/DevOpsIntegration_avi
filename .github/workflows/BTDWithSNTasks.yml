@@ -95,16 +95,16 @@ jobs:
           
       - name: Run deployment scripts
         run: echo Completed Deployment.
-      - name: Sleep
-        run: sleep 15
+      # - name: Sleep
+      #   run: sleep 15
 
   postDeploy:
     needs: deploy
     name: Post Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Sleep
-        run: sleep 15
+      # - name: Sleep
+      #   run: sleep 15
 
       - name: ServiceNow DevOps Get Change
         uses: ServiceNow/servicenow-devops-get-change@v3.1.0
