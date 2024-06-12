@@ -107,12 +107,12 @@ jobs:
         run: sleep 15
 
       - name: ServiceNow DevOps Get Change
-        uses: ServiceNow/servicenow-devops-get-change@v3.1.0
+        uses: aviskalange/servicenow-devops-get-change@main
         with:
           devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
           instance-url: ${{ secrets.SN_INSTANCE_URL }}
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           # The inputs to identify change at Servicenow and GET it.
-          change-details: '{"build_number":"${{ github.run_id }}","pipeline_name":"aviskalange/DevOpsIntegration/GHARerunTest","stage_name":"Deploy", "attemptNumber": 1}'
+          change-details: '{"build_number":"${{ github.run_id }}","pipeline_name":"aviskalange/DevOpsIntegration/GHARerunTest","stage_name":"Deploy", "attempt_number": 1}'
           
