@@ -103,11 +103,11 @@ jobs:
     name: Post Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Sleep
-        run: sleep 15
+      # - name: Sleep
+      #   run: sleep 15
 
       - name: ServiceNow DevOps Get Change
-        uses: aviskalange/servicenow-devops-get-change@main
+        uses: avinash-kalange-sn/servicenow-devops-get-change@scratch/DEF0543091
         with:
           devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
           instance-url: ${{ secrets.SN_INSTANCE_URL }}
