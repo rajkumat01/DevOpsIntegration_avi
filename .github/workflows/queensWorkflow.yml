@@ -86,3 +86,10 @@ jobs:
       #     memory: 1
       #     ports: 8000 80
       #     location: "Australia East"
+  post-deploy:
+    name: Post Deploy
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - run : sleep 15
+      - run: echo Run deployment
