@@ -109,9 +109,9 @@ jobs:
       - name: ServiceNow DevOps Get Change
         uses: avinash-kalange-sn/servicenow-devops-get-change@scratch/DEF0543091
         with:
-          devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
-          instance-url: ${{ secrets.SN_INSTANCE_URL }}
-          tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+          devops-integration-token: 'RFAaWCXLMzFs9TIgrUfXcyhypEbGCjum'
+          instance-url: 'https://sftokyo3.service-now.com'
+          tool-id: 'f95bf73c9343ce504686fca86cba105c'
           context-github: ${{ toJSON(github) }}
           # The inputs to identify change at Servicenow and GET it.
           change-details: '{"build_number":"${{ github.run_id }}","pipeline_name":"aviskalange/DevOpsIntegration/GHARerunTest","stage_name":"Deploy","attempt_number":1}'
