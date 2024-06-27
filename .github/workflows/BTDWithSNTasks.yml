@@ -84,7 +84,7 @@ jobs:
       - name: Custom Change
         uses: ServiceNow/servicenow-devops-change@v4.0.0
         with:
-          devops-integration-token: 'U2oJngTndGPrvmgJNskTUTqjv9HKX54u'
+          devops-integration-token: '2d5N4yZB98tviilbR0vsdsbxDqaG4XdY'
           instance-url: 'https://devopss1.service-now.com'
           tool-id: 'fa186fad93438210ec77746efaba10d5'
           context-github: ${{ toJSON(github) }}
@@ -109,7 +109,7 @@ jobs:
       - name: ServiceNow DevOps Get Change
         uses: avinash-kalange-sn/servicenow-devops-get-change@scratch/DEF0543091
         with:
-          devops-integration-token: 'U2oJngTndGPrvmgJNskTUTqjv9HKX54u'
+          devops-integration-token: '2d5N4yZB98tviilbR0vsdsbxDqaG4XdY'
           instance-url: 'https://devopss1.service-now.com'
           tool-id: 'fa186fad93438210ec77746efaba10d5'
           context-github: ${{ toJSON(github) }}
