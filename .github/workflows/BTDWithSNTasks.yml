@@ -86,7 +86,7 @@ jobs:
         with:
           devops-integration-token: 'U2oJngTndGPrvmgJNskTUTqjv9HKX54u'
           instance-url: 'https://devopss1.service-now.com'
-          tool-id: 'b284c4341bfbe110a09464a5ec4bcbcf'
+          tool-id: 'fa186fad93438210ec77746efaba10d5'
           context-github: ${{ toJSON(github) }}
           job-name: 'Deploy'
           change-request: '{"setCloseCode":"true","attributes":{"short_description":"Automated Software Deployment","description":"Automated Software Deployment.","assignment_group":"a715cd759f2002002920bde8132e7018"}}'
@@ -111,7 +111,7 @@ jobs:
         with:
           devops-integration-token: 'U2oJngTndGPrvmgJNskTUTqjv9HKX54u'
           instance-url: 'https://devopss1.service-now.com'
-          tool-id: 'b284c4341bfbe110a09464a5ec4bcbcf'
+          tool-id: 'fa186fad93438210ec77746efaba10d5'
           context-github: ${{ toJSON(github) }}
           # The inputs to identify change at Servicenow and GET it.
           change-details: '{"build_number":"${{ github.run_id }}","pipeline_name":"aviskalange/DevOpsIntegration/GHARerunTest","stage_name":"Deploy","attempt_number":1}'
